@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Capstone.Classes
 {
@@ -17,19 +18,57 @@ namespace Capstone.Classes
 
         public void RecordDeposit(decimal amount, decimal finalBalance)
         {
-            //how much money the customer put in with each transaction
-            //& how much total money the customer has fed into the machine.
+            //hwhen the customer deposits money, record this
 
-            finalBalance = amount++;
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(Filepath))
+                {
+                    sw.WriteLine($"{DateTime.Now} FEED MONEY {amount} {finalBalance}");
+                }
+            }
+            catch
+            {
+
+            }
+
+
         }
         public decimal RecordPurchase(string slot, string product, decimal initialBal, decimal finalBalance)
         {
-            //recording product and slot, provide initial balance, subtract product cost return new final balance
-            
+
+
+            //when the customer makes a purchase, record this
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(Filepath))
+                {
+                    sw.WriteLine($"{DateTime.Now} {product} {slot} {initialBal} {finalBalance}");
+                }
+            }
+            catch
+            {
+
+            }
         }
         public RecordCompleteTransaction(decimal remainingBalance)
         {
-            //adding the final balance to the machine's balance
+            // when the customer completes their transaction, record this
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(Filepath))
+                {
+                    sw.WriteLine($"{DateTime.Now} GIVE CHANGE {remainingBalance}");
+                }
+            }
+            catch
+            {
+
+            }
+
+
         }
+
+
     }
 }
