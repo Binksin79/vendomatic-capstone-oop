@@ -6,11 +6,28 @@ using System.Threading.Tasks;
 
 namespace Capstone.Classes
 {
-    public class VendingItem
+    public abstract class VendingItem
     {
+        // properties //
+
         public string ItemName { get; }
-        public int ItemPrice { get; }
-        public string ItemSlot { get; }
-        public string ItemType { get; }
+        public decimal ItemPrice { get; }
+        
+        // constructor //
+
+        public VendingItem (string itemName, decimal itemPrice)
+        {
+            ItemName = itemName;
+            ItemPrice = itemPrice;
+        }
+
+        // methods //
+
+        public abstract string Consume();
+        
+            
+            
+        
+
     }
 }
