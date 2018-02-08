@@ -9,6 +9,12 @@ namespace Capstone.Classes
 {
     class TransactionLogger
     {
+        finalBalance = initialBal - itemPrice;
+
+
+
+
+
         private string Filepath { get; }
 
         public TransactionLogger(string filepath)
@@ -37,6 +43,8 @@ namespace Capstone.Classes
         public decimal RecordPurchase(string slot, string product, decimal initialBal, decimal finalBalance)
         {
 
+            
+
 
             //when the customer makes a purchase, record this
             try
@@ -50,21 +58,23 @@ namespace Capstone.Classes
             {
 
             }
+            return finalBalance;
         }
-        public RecordCompleteTransaction(decimal remainingBalance)
+        public decimal RecordCompleteTransaction(decimal remainingBalance)
         {
             // when the customer completes their transaction, record this
             try
             {
                 using (StreamWriter sw = new StreamWriter(Filepath))
                 {
-                    sw.WriteLine($"{DateTime.Now} GIVE CHANGE {remainingBalance}");
+                    sw.WriteLine($"{DateTime.Now} GIVE CHANGE {remainingBalance} {finalBalance}");
                 }
             }
             catch
             {
 
             }
+            return remainingBalance;
 
 
         }

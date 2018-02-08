@@ -13,19 +13,14 @@ namespace Capstone.Classes
         int quarters = 0;
         decimal total;
 
-
         public int Nickels { get { return nickels; } }
         public int Dimes { get { return dimes; } }
         public int Quarters { get { return quarters; } }
         public decimal Total { get; }
 
-
-
-
-
         public Change(decimal total)
         {
-           Total = total;
+            Total = total;
         }
 
         public string GiveChange()
@@ -36,7 +31,7 @@ namespace Capstone.Classes
             {
                 quarters++;
                 total = total - 25;
-                
+
             }
             else if (total >= 10)
             {
@@ -50,13 +45,6 @@ namespace Capstone.Classes
             }
             return $"The change is: {quarters} quarters, {dimes} dimes, and {nickels} nickels.";
         }
-              
-            
-
-
-
-        }
-
-
     }
+}
 
