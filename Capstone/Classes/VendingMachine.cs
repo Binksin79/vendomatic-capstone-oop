@@ -8,28 +8,26 @@ namespace Capstone.Classes
 {
     public class VendingMachine
     {
-        
-       
         public decimal Balance { get; private set; }
         private Dictionary<string, List<VendingItem>> Inventory()
         {
-            /// inventory logger ///
-        }        
+            return Inventory();
+        }
         public string[] Slots { get; }
 
 
 
 
         public void FeedMoney(int dollars)
-        {                        
+        {
             int dollarsInPennies = dollars * 100;
             customerTotal += dollarsInPennies;
         }
-        public VendingItem GetItemAtSlot (string slot)
+        public VendingItem GetItemAtSlot(string slot)
         {
 
         }
-        public int GetQuantityRemaining (string slot)
+        public int GetQuantityRemaining(string slot)
         {
 
         }
@@ -48,5 +46,5 @@ namespace Capstone.Classes
 
 
 
-}
+    }
 }

@@ -56,7 +56,7 @@
     <Compile Include="VendingMachineInterface\UserInterface.cs" />
     <Compile Include="Classes\VendingItem.cs" />
     <Compile Include="Classes\VendingMachine.cs" />
-    <Compile Include="Classes\VendingStocker.cs" />
+    <Compile Include="Classes\TransactionLogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VendingMachineInterface\PurchaseSubmenu.cs" />

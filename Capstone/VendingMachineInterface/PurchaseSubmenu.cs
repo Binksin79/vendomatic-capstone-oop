@@ -22,19 +22,18 @@ namespace Capstone.VendingMachineInterface
 
                 if (input == "1")
                 {
-                    Console.WriteLine($"You have {customerTotal} remaining.");
-                    
+                    Console.WriteLine($"You have {finalBalance} remaining.");
                 }
                 else if (input == "2")
                 {
                     Console.WriteLine("Select a product: ");
                     string productInput = Console.ReadLine();
-                    if (!exists)
+                    if ()
                     {
                         Console.WriteLine("That item is not stocked. Returning to main menu.");
                         break;
                     }
-                    else if (!instock)
+                    else if ()
                     {
                         Console.WriteLine("That item is sold out. Returning to main menu.");
                         break;
@@ -44,26 +43,27 @@ namespace Capstone.VendingMachineInterface
                         //remove that item from the list
                         //subtract the cost from the customer's balance
                     }
+                }
                 else if (input == "3")
                 {
-                        Console.WriteLine("Thank you for using Team 0's Vending Machine. Returning your change. Enjoy!");
-                        //return change
-                        //reset customer balance                      
+                    Console.WriteLine("Thank you for using Team 0's Vending Machine. Returning your change. Enjoy!");
+                    //return change
+                    //reset customer balance                      
                 }
 
-
-                }
-                else if (input == "Q")
-                {
-                    Console.WriteLine("Returning to main menu");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Please try again");
-                }
 
             }
+                else if (input == "Q")
+            {
+                Console.WriteLine("Returning to main menu");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Please try again");
+            }
+
         }
     }
+}
 }

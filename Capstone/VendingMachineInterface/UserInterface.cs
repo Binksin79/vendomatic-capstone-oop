@@ -51,6 +51,6 @@ namespace Capstone.Classes
             Console.WriteLine("Welcome to the .NET Team 0 Vending Machine!");
         }
 
-        public void Run();
+        //public void Run();
     }
 }
