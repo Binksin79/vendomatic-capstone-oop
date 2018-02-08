@@ -23,6 +23,7 @@ namespace Capstone.VendingMachineInterface
                 if (input == "1")
                 {
                     Console.WriteLine($"You have {customerTotal} remaining.");
+                    
                 }
                 else if (input == "2")
                 {

@@ -48,6 +48,11 @@
     <Compile Include="Classes\ChipItem.cs" />
     <Compile Include="Classes\GumItem.cs" />
     <Compile Include="Classes\BeverageItem.cs" />
+    <Compile Include="Classes\VendingMachineFileReader.cs" />
+    <Compile Include="Exceptions\InsufficientFundsException.cs" />
+    <Compile Include="Exceptions\InvalidSlotException.cs" />
+    <Compile Include="Exceptions\OutOfStockException.cs" />
+    <Compile Include="Exceptions\VendingMachineExceptions.cs" />
     <Compile Include="VendingMachineInterface\UserInterface.cs" />
     <Compile Include="Classes\VendingItem.cs" />
     <Compile Include="Classes\VendingMachine.cs" />
@@ -58,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="vendingmachine.csv" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
