@@ -21,9 +21,9 @@ namespace Capstone.Classes
 
 
         public void FeedMoney(int dollars)
-        {
+        {                        
             int dollarsInPennies = dollars * 100;
-            customerTotal += dollars;
+            customerTotal += dollarsInPennies;
         }
         public VendingItem GetItemAtSlot (string slot)
         {

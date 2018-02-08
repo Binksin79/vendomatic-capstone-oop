@@ -8,9 +8,7 @@ namespace Capstone.Classes
 {
     class GumItem : VendingItem
     {
-        public GumItem(string itemName, decimal itemPrice) : base(itemName, itemPrice)
-        {
-        }
+        public GumItem(string itemName, decimal itemPrice) : base(itemName, itemPrice) { }
 
         public override string Consume()
         {

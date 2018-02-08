@@ -14,7 +14,5 @@ namespace Capstone.Classes
         {
             return "Crunch Crunch, Yum!";
         }
-
-
     }
 }

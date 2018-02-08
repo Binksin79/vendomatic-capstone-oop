@@ -48,12 +48,13 @@
     <Compile Include="Classes\ChipItem.cs" />
     <Compile Include="Classes\GumItem.cs" />
     <Compile Include="Classes\BeverageItem.cs" />
-    <Compile Include="Classes\UserInterface.cs" />
+    <Compile Include="VendingMachineInterface\UserInterface.cs" />
     <Compile Include="Classes\VendingItem.cs" />
     <Compile Include="Classes\VendingMachine.cs" />
     <Compile Include="Classes\VendingStocker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VendingMachineInterface\PurchaseSubmenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

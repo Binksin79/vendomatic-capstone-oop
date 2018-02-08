@@ -8,5 +8,6 @@ namespace Capstone.Classes
 {
     class VendingStocker
     {
+
     }
 }
