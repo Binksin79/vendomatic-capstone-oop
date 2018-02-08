@@ -8,35 +8,50 @@ namespace Capstone.Classes
 {
     public class Change
     {
-        public int Nickels { get; }
-        public int Dimes { get; }
-        public int Quarters { get; }
+        int nickels = 0;
+        int dimes = 0;
+        int quarters = 0;
+        decimal total;
+
+
+        public int Nickels { get { return nickels; } }
+        public int Dimes { get { return dimes; } }
+        public int Quarters { get { return quarters; } }
         public decimal Total { get; }
+
+
+
+
 
         public Change(decimal total)
         {
+           Total = total;
+        }
+
+        public string GiveChange()
+        {
+            decimal totalInCents = total * 100;
+
+            if (total >= 25)
+            {
+                quarters++;
+                total = total - 25;
+                
+            }
+            else if (total >= 10)
+            {
+                dimes++;
+                total = total - 10;
+            }
+            else if (total >= 5)
+            {
+                nickels++;
+                total = total - 5;
+            }
+            return $"The change is: {quarters} quarters, {dimes} dimes, and {nickels} nickels.";
+        }
+              
             
-            Total = total;
-            total = total * 100;
-            if (total % 25 == 0)
-            {
-                // quarters = total / 25;
-            }
-            else if (total % 25 > 0)
-            {
-                // quarters = (total / 25);
-                // total = total - (25 * quarters);
-                if (total % 10 == 0)
-                {
-                    // dimes = total / 10;
-                }
-                else if (total % 10 > 0)
-                {
-                    // dimes = total / 10;
-                    // total = total - (10 * dimes);
-                    // nickels = total / 5;
-                }
-            }
 
 
 
@@ -44,4 +59,4 @@ namespace Capstone.Classes
 
 
     }
-}
+
