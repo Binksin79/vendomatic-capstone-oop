@@ -20,8 +20,13 @@ namespace Capstone.Classes
 
         private Dictionary<string, List<VendingItem>> Inventory { get; set; }
 
-        public string[] Slots => Inventory.Keys.ToArray();
-
+        public string[] Slots
+        {
+            get
+            {
+                return Inventory.Keys.ToArray();
+            }
+        }
 
         public void FeedMoney(int dollars)
         {
@@ -41,6 +46,13 @@ namespace Capstone.Classes
 
         public VendingItem Purchase(string slot)
         {
+            decimal initialBal = Balance;
+            
+            decimal finalBal 
+
+
+
+
 
         }
         public Change GetChange()
