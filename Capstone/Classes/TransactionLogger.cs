@@ -9,12 +9,6 @@ namespace Capstone.Classes
 {
     class TransactionLogger
     {
-        
-
-
-
-
-
         private string Filepath { get; }
 
         public TransactionLogger(string filepath)
@@ -43,7 +37,7 @@ namespace Capstone.Classes
         public decimal RecordPurchase(string slot, string product, decimal initialBal, decimal finalBalance)
         {
 
-            
+
 
 
             //when the customer makes a purchase, record this

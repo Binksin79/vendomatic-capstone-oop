@@ -46,6 +46,7 @@ namespace Capstone.Classes
         public VendingItem Purchase(string slot)
         {          
             Balance -= GetItemAtSlot(slot).ItemPrice;
+            Inventory.Remove[slot][0];
             return Inventory[slot][0];          
         }
 
