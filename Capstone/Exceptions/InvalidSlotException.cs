@@ -9,16 +9,7 @@ namespace Capstone.Exceptions
     public class InvalidSlotException : VendingMachineExceptions
     {
         public InvalidSlotException() : base("That slot does not exist on this machine. Please select another item.")
-        {
-           
-        }
-        public override string ExceptionMessage
-        {
-            get
-            {
-                string message = "That slot does not exist on this machine. Please select another item.";
-                return message;
-            }
+        {           
         }
     }
 }

@@ -8,16 +8,8 @@ namespace Capstone.Exceptions
 {
     public class OutOfStockException : VendingMachineExceptions
     {
-        public OutOfStockException(string ex) : base(ex)
+        public OutOfStockException() : base("That item is SOLD OUT")
         {
-
-        }
-        public override string ExceptionMessage
-        {
-            get
-            {
-                return "That item is out of stock. Please select a different item.";
-            }
         }
     }
 }

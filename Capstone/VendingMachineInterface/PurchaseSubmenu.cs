@@ -53,20 +53,11 @@ namespace Capstone.VendingMachineInterface
                 {
                     try
                     {
-
                         Console.WriteLine("Select a product: ");
                         string productInput = Console.ReadLine().ToUpper();
-                        if (!vm.Slots.Contains(productInput))
-                        {
-                            throw new InvalidSlotException();
-                        }
-                        if (vm.GetQuantityRemaining(productInput) > 0 && vm.Balance > 0 && vm.Balance - vm.GetItemAtSlot(productInput).ItemPrice < 0)
-                        {
-                            vm.Purchase(productInput);
-                        }
-
+                        vm.Purchase(productInput);                                                
                     }
-                    catch (InvalidSlotException ex)
+                    catch (VendingMachineExceptions ex)
                     {
                         Console.WriteLine(ex.Message);
                     }

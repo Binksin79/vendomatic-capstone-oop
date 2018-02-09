@@ -24,6 +24,8 @@ namespace Capstone.VendingMachineInterface
                 Console.WriteLine();                
                 Console.WriteLine("1] Display Vending Machine Items");
                 Console.WriteLine("2] Purchase");
+                Console.WriteLine("Press Q to quit");
+                
                 
 
                 Console.Write("What option do you want to select? ");
@@ -44,7 +46,7 @@ namespace Capstone.VendingMachineInterface
                     submenu.Display();
                     
                 }
-                else if (input == "Q")
+                else if (input == "Q" || input == "q")
                 {
                     Console.WriteLine("Quitting");
                     break;

@@ -7,14 +7,7 @@ using System.Threading.Tasks;
 namespace Capstone.Exceptions
 {
     public class VendingMachineExceptions : Exception
-    {
-        public virtual string ExceptionMessage
-        {
-            get
-            {
-                return "";
-            }
-        }
+    {        
         public VendingMachineExceptions(string ex) : base(ex) { }
     }
 }

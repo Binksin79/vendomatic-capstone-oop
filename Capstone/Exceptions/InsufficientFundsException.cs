@@ -8,16 +8,9 @@ namespace Capstone.Exceptions
 {
     public class InsufficientFundsException : VendingMachineExceptions
     {
-        public InsufficientFundsException(string ex) : base(ex)
+        public InsufficientFundsException() : base("Insufficient funds.  Please add more money.")
         {
-
-        }
-        public override string ExceptionMessage
-        {
-            get
-                {
-                return "Insufficient funds to purchase this item. Please add more money.";
-                }
         }
     }
 }
+
