@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capstone.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,13 +47,21 @@ namespace Capstone.Classes
         public VendingItem Purchase(string slot)
         {          
             Balance -= GetItemAtSlot(slot).ItemPrice;
-            Inventory.Remove[slot][0];
+            if (Inventory[slot].Count > 0)
+            {
+                Inventory[slot].RemoveAt(0);
+            }
+            else
+            {
+                throw new OutOfStockException("Item is out of stock");
+            }
             return Inventory[slot][0];          
         }
 
         public Change GetChange()
         {
-            Change change = new Change(Balance);            
+            Change change = new Change(Balance);
+            
             return change;
             
         }     

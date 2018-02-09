@@ -18,7 +18,7 @@ namespace Capstone.Classes
 
         public void RecordDeposit(decimal amount, decimal finalBalance)
         {
-            //when the customer deposits money, record this
+            
 
             try
             {
@@ -40,7 +40,7 @@ namespace Capstone.Classes
 
 
 
-            //when the customer makes a purchase, record this
+            
             try
             {
                 using (StreamWriter sw = new StreamWriter(Filepath))
@@ -56,7 +56,7 @@ namespace Capstone.Classes
         }
         public decimal RecordCompleteTransaction(decimal remainingBalance)
         {
-            // when the customer completes their transaction, record this
+           
             try
             {
                 using (StreamWriter sw = new StreamWriter(Filepath))

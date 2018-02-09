@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Capstone.Classes;
+using Capstone.Exceptions;
 
 
 namespace Capstone.VendingMachineInterface

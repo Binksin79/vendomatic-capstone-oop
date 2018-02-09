@@ -21,29 +21,32 @@ namespace Capstone.Classes
         public Change(decimal total)
         {
             Total = total;
+            this.total = total;
         }
 
         public string GiveChange()
         {
             decimal totalInCents = total * 100;
+            
 
-            if (totalInCents >= 25)
+            while(totalInCents >= 25)
             {
                 quarters++;
                 totalInCents -= 25;
 
             }
-            else if (totalInCents >= 10)
+            while(totalInCents >= 10)
             {
                 dimes++;
                 totalInCents -= 10;
             }
-            else if (totalInCents >= 5)
+            while(totalInCents >= 5)
             {
                 nickels++;
                 totalInCents -= 5;
             }
-            return $"The change is: {quarters} quarters, {dimes} dimes, and {nickels} nickels.";
+            string output = $"The change is: {quarters} quarters, {dimes} dimes, and {nickels} nickels.";
+            return output;
         }
     }
 }

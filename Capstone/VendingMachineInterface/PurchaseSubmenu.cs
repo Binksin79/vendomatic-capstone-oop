@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Capstone.VendingMachineInterface;
+using Capstone.Exceptions;
 
 namespace Capstone.VendingMachineInterface
 {
@@ -38,30 +39,31 @@ namespace Capstone.VendingMachineInterface
                     {
                         vm.FeedMoney(dollar);
                     }
-                    // else
-                    //{
-                    //   throw new Exceptions.VendingMachineExceptions();
-                    // }
+                    else
+                    {
+                        throw new InvalidOperationException();
+                    }
 
 
                 }
                 else if (input == "2")
                 {
                     Console.WriteLine("Select a product: ");
-                    string productInput = Console.ReadLine();
+                    string productInput = Console.ReadLine().ToUpper();
                     if (vm.GetQuantityRemaining(productInput) > 0 && vm.Balance > 0)
                     {
                         vm.Purchase(productInput);
                     }
-                    //else
-                    //{
-                    //    throw new Exception.OutOfStockException();
-                    //}
+                    else
+                    {
+                        throw new OutOfStockException("elkjfewlkjwlkfjwe");
+                    }
                 }
                 else if (input == "3")
                 {
-                    Console.WriteLine("Thank you for using Team 0's Vending Machine. Returning your change. Enjoy!");
-                    vm.GetChange();
+                    Console.WriteLine("Thank you for using Team 0's Vending Machine.");
+                    Console.WriteLine($"{vm.GetChange().GiveChange()}");
+                    
                     break;
                 }
 
