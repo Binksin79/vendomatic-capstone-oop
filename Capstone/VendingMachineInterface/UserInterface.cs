@@ -35,7 +35,14 @@ namespace Capstone.VendingMachineInterface
                 {
                     foreach(var slot in vendingMachine.Slots)
                     {
-                        Console.WriteLine($"{slot} {vendingMachine.GetItemAtSlot(slot).ItemName} {vendingMachine.GetQuantityRemaining(slot)}");
+                        try
+                        {
+                            Console.WriteLine($"{slot} {vendingMachine.GetItemAtSlot(slot).ItemName} {vendingMachine.GetQuantityRemaining(slot)}");
+                        }
+                        catch(OutOfStockException ex)
+                        {
+                            Console.WriteLine($"{slot} - {ex.Message}");
+                        }
                     }
                    
                 }
