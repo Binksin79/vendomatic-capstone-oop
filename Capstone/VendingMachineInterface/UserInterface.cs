@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Capstone.Classes;
 
-namespace Capstone.Classes
+
+namespace Capstone.VendingMachineInterface
 {
-    class UserInterface
+    public class UserInterface
     {
-        private VendingMachine vendingMachine;
+        private VendingMachine vendingMachine = new VendingMachine();
+        
 
         public void Display()
         {
@@ -27,7 +30,11 @@ namespace Capstone.Classes
 
                 if (input == "1")
                 {
-                    Console.WriteLine("[[DISPLAY ITEMS]]");
+                    foreach(var slot in vendingMachine.Slots)
+                    {
+                        Console.WriteLine($"{slot} {vendingMachine.GetItemAtSlot(slot).ItemName} {vendingMachine.GetQuantityRemaining(slot)}");
+                    }
+                   
                 }
                 else if (input == "2")
                 {

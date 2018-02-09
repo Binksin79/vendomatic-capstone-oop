@@ -24,7 +24,7 @@ namespace Capstone.Classes
 
         public void RecordDeposit(decimal amount, decimal finalBalance)
         {
-            //hwhen the customer deposits money, record this
+            //when the customer deposits money, record this
 
             try
             {

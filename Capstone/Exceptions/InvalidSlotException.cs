@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Capstone.Exceptions
 {
-    class InvalidSlotException : VendingMachineExceptions
+    public class InvalidSlotException : VendingMachineExceptions
     {
+        public InvalidSlotException(string ex) : base(ex)
+        {
+
+        }
+        public override string ExceptionMessage
+        {
+            get
+            {
+                return "That slot does not exist on this machine. Please select another item.";
+            }
+        }
     }
 }

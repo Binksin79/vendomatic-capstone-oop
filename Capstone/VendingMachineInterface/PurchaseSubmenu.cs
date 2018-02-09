@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Capstone.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Capstone.VendingMachineInterface;
 
 namespace Capstone.VendingMachineInterface
 {
-    class PurchaseSubmenu
+    public class PurchaseSubmenu
     {
         public void Display()
         {
@@ -22,26 +24,37 @@ namespace Capstone.VendingMachineInterface
 
                 if (input == "1")
                 {
-                    Console.WriteLine($"You have {finalBalance} remaining.");
+                    Console.WriteLine($"You have no money remaining.");
+                    Console.WriteLine($"Would you like to add more money?");
+                    Console.WriteLine("1] Yes");
+                    Console.WriteLine("2] No");
+                    string addMoney = Console.ReadLine();
+                    if(addMoney == "1")
+                    {
+                        
+                    }
+                    else if(addMoney == "2")
+                    {
+                        break;
+                    }
+
                 }
                 else if (input == "2")
                 {
                     Console.WriteLine("Select a product: ");
                     string productInput = Console.ReadLine();
-                    if ()
+                    if (true)
                     {
-                        Console.WriteLine("That item is not stocked. Returning to main menu.");
-                        break;
+                        throw new Exception();
                     }
-                    else if ()
+                    else if (false)
                     {
                         Console.WriteLine("That item is sold out. Returning to main menu.");
                         break;
                     }
                     else
                     {
-                        //remove that item from the list
-                        //subtract the cost from the customer's balance
+                       
                     }
                 }
                 else if (input == "3")
@@ -53,17 +66,18 @@ namespace Capstone.VendingMachineInterface
 
 
             }
-                else if (input == "Q")
-            {
-                Console.WriteLine("Returning to main menu");
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Please try again");
-            }
+
+            //    else if (input == "Q")
+            //{
+            //    Console.WriteLine("Returning to main menu");
+            //    break;
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Please try again");
+            //}
 
         }
     }
 }
-}
+
