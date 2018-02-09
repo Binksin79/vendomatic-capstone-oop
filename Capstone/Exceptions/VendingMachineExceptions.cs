@@ -15,6 +15,6 @@ namespace Capstone.Exceptions
                 return "";
             }
         }
-        public VendingMachineExceptions(string ex) { }
+        public VendingMachineExceptions(string ex) : base(ex) { }
     }
 }

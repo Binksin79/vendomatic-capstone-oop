@@ -45,7 +45,7 @@ namespace Capstone.Classes
                 nickels++;
                 totalInCents -= 5;
             }
-            string output = $"The change is: {quarters} quarters, {dimes} dimes, and {nickels} nickels.";
+            string output = $"Your change is: {quarters} quarters, {dimes} dimes, and {nickels} nickels.";
             return output;
         }
     }

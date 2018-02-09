@@ -33,44 +33,56 @@ namespace Capstone.VendingMachineInterface
 
                 if (input == "1")
                 {
-                    Console.WriteLine("Enter money in denominations of $1, $5, $10, or $20");
-                    int dollar = Convert.ToInt32(Console.ReadLine());
-                    if (dollar == 1 || dollar == 5 || dollar == 10 || dollar == 20)
+                    try
                     {
-                        vm.FeedMoney(dollar);
+                        Console.WriteLine("Enter money in denominations of $1, $5, $10, or $20");
+                        int dollar = Convert.ToInt32(Console.ReadLine());
+                        if (dollar == 1 || dollar == 5 || dollar == 10 || dollar == 20)
+                        {
+                            vm.FeedMoney(dollar);
+                        }
                     }
-                    else
+                    catch (InvalidOperationException ex)
                     {
-                        throw new InvalidOperationException();
+                        Console.WriteLine("Invalid input. Try again.");
                     }
-
 
                 }
+
                 else if (input == "2")
                 {
-                    Console.WriteLine("Select a product: ");
-                    string productInput = Console.ReadLine().ToUpper();
-                    if (vm.GetQuantityRemaining(productInput) > 0 && vm.Balance > 0)
+                    try
                     {
-                        vm.Purchase(productInput);
+
+                        Console.WriteLine("Select a product: ");
+                        string productInput = Console.ReadLine().ToUpper();
+                        if (!vm.Slots.Contains(productInput))
+                        {
+                            throw new InvalidSlotException();
+                        }
+                        if (vm.GetQuantityRemaining(productInput) > 0 && vm.Balance > 0 && vm.Balance - vm.GetItemAtSlot(productInput).ItemPrice < 0)
+                        {
+                            vm.Purchase(productInput);
+                        }
+
                     }
-                    else
+                    catch (InvalidSlotException ex)
                     {
-                        throw new OutOfStockException("elkjfewlkjwlkfjwe");
+                        Console.WriteLine(ex.Message);
                     }
                 }
                 else if (input == "3")
                 {
                     Console.WriteLine("Thank you for using Team 0's Vending Machine.");
                     Console.WriteLine($"{vm.GetChange().GiveChange()}");
-                    
+
                     break;
                 }
 
 
             }
 
-            
+
 
         }
     }
