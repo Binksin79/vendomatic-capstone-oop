@@ -27,21 +27,21 @@ namespace Capstone.Classes
         {
             decimal totalInCents = total * 100;
 
-            if (total >= 25)
+            if (totalInCents >= 25)
             {
                 quarters++;
-                total = total - 25;
+                totalInCents -= 25;
 
             }
-            else if (total >= 10)
+            else if (totalInCents >= 10)
             {
                 dimes++;
-                total = total - 10;
+                totalInCents -= 10;
             }
-            else if (total >= 5)
+            else if (totalInCents >= 5)
             {
                 nickels++;
-                total = total - 5;
+                totalInCents -= 5;
             }
             return $"The change is: {quarters} quarters, {dimes} dimes, and {nickels} nickels.";
         }

@@ -9,7 +9,7 @@ namespace Capstone.Classes
 {
     class TransactionLogger
     {
-        finalBalance = initialBal - itemPrice;
+        
 
 
 
@@ -67,7 +67,7 @@ namespace Capstone.Classes
             {
                 using (StreamWriter sw = new StreamWriter(Filepath))
                 {
-                    sw.WriteLine($"{DateTime.Now} GIVE CHANGE {remainingBalance} {finalBalance}");
+                    sw.WriteLine($"{DateTime.Now} GIVE CHANGE {remainingBalance} $0.00");
                 }
             }
             catch
