@@ -19,21 +19,8 @@ namespace Capstone.Classes
         public decimal Balance { get; private set; }
 
         private Dictionary<string, List<VendingItem>> Inventory { get; set; }
-        
-        public string[] Slots
-        {
-            get
-            {
-                string[] slots = new string[Inventory.Count];
-                int incrementer = 0;
-                foreach (string key in Inventory.Keys)
-                {
-                    slots[incrementer] = key;
-                    incrementer++;
-                }
-                return slots;
-            }
-        }
+
+        public string[] Slots => Inventory.Keys.ToArray();
 
 
         public void FeedMoney(int dollars)
