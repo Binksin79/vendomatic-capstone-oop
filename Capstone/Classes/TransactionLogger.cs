@@ -20,7 +20,7 @@ namespace Capstone.Classes
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(Filepath))
+                using (StreamWriter sw = new StreamWriter(Filepath, true))
                 {
                     sw.WriteLine($"{DateTime.Now} FEED MONEY {amount} {finalBalance}");
                 }
