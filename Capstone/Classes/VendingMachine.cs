@@ -9,9 +9,6 @@ namespace Capstone.Classes
 {
     public class VendingMachine
     {
-
-
-
         VendingMachineFileReader invoke = new VendingMachineFileReader("vendingmachine.csv");
 
         public VendingMachine()
@@ -37,9 +34,19 @@ namespace Capstone.Classes
         }
 
         public VendingItem GetItemAtSlot(string slot)
-        {
-            VendingItem itemAtSlot = Inventory[slot][0];
-            return itemAtSlot;
+
+
+        {   if (Inventory[slot].Count == 0) { throw new OutOfStockException(); }
+            if (Inventory[slot].Count > 0)
+            {
+               
+                VendingItem itemAtSlot = Inventory[slot][0];
+                return itemAtSlot;
+            }
+            else
+            {
+                throw new OutOfStockException();
+            }
         }
 
         public int GetQuantityRemaining(string slot)
@@ -55,16 +62,16 @@ namespace Capstone.Classes
 
             Balance -= GetItemAtSlot(slot).ItemPrice;
             if (Inventory[slot].Count > 0)
-            {
-
+            {                
+                VendingItem temp = Inventory[slot][0];
                 Inventory[slot].RemoveAt(0);
-                return Inventory[slot][0];
+                return temp;
             }
             else
             {
                 throw new OutOfStockException();
             }
-            ;          
+                      
         }
 
         public Change GetChange()

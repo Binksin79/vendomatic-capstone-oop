@@ -19,6 +19,8 @@ namespace Capstone.VendingMachineInterface
         }
         public void Display()
         {
+            List<VendingItem> purchasedItems = new List<VendingItem>();
+
             while (true)
             {
                 Console.WriteLine($"You have ${vm.Balance} remaining.");
@@ -55,7 +57,8 @@ namespace Capstone.VendingMachineInterface
                     {
                         Console.WriteLine("Select a product: ");
                         string productInput = Console.ReadLine().ToUpper();
-                        vm.Purchase(productInput);                                                
+                        purchasedItems.Add(vm.Purchase(productInput));   
+                        
                     }
                     catch (VendingMachineExceptions ex)
                     {
@@ -66,6 +69,10 @@ namespace Capstone.VendingMachineInterface
                 {
                     Console.WriteLine("Thank you for using Team 0's Vending Machine.");
                     Console.WriteLine($"{vm.GetChange().GiveChange()}");
+                    foreach(var item in purchasedItems)
+                    {
+                        Console.WriteLine($"{item.Consume()}");
+                    }
 
                     break;
                 }
