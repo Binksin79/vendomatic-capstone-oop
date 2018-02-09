@@ -8,7 +8,7 @@ using Capstone.Classes;
 
 
 namespace Capstone.VendingMachineInterface
-{
+{   
     public class UserInterface
     {
         private VendingMachine vendingMachine = new VendingMachine();
@@ -38,8 +38,10 @@ namespace Capstone.VendingMachineInterface
                 }
                 else if (input == "2")
                 {
-                    PurchaseSubmenu submenu = new PurchaseSubmenu();
+                    PurchaseSubmenu submenu = new PurchaseSubmenu(vendingMachine);
+                    
                     submenu.Display();
+                    
                 }
                 else if (input == "Q")
                 {
