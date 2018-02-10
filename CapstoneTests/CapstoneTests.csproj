@@ -58,9 +58,6 @@
     <Compile Include="GumItemTest.cs" />
     <Compile Include="ChangeTest.cs" />
     <Compile Include="VendingMachineTest.cs" />
-    <Compile Include="InsufficientFundsExceptionTest.cs" />
-    <Compile Include="InvalidSlotExceptionTest.cs" />
-    <Compile Include="OutOfStockExceptionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capstone\Capstone.csproj">
