@@ -16,12 +16,6 @@ namespace CapstoneTests
             string result = tester.Consume();
             // Assert
             Assert.AreEqual("Munch Munch, Yum!", result);
-
-
-
-
-
-
         }
     }
 }

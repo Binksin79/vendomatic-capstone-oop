@@ -68,8 +68,6 @@ namespace Capstone.VendingMachineInterface
         private void PrintHeader()
         {
             Console.WriteLine("Welcome to the .NET Team 0 Vending Machine!");
-        }
-
-        //public void Run();
+        }        
     }
 }
