@@ -27,13 +27,11 @@ namespace Capstone.Classes
         public string GiveChange()
         {
             decimal totalInCents = total * 100;
-            
-
+           
             while(totalInCents >= 25)
             {
                 quarters++;
                 totalInCents -= 25;
-
             }
             while(totalInCents >= 10)
             {

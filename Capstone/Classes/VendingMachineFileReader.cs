@@ -39,38 +39,37 @@ namespace Capstone.Classes
         private List<VendingItem> LineIntoList(string[] line)
         {
             List<VendingItem> result = new List<VendingItem>();
-            
+            decimal cost = decimal.Parse(line[2]);
+
             if (line[0].StartsWith("A"))
             {
-                result.Add(new ChipItem(line[1], decimal.Parse(line[2])));
-                result.Add(new ChipItem(line[1], decimal.Parse(line[2])));
-                result.Add(new ChipItem(line[1], decimal.Parse(line[2])));
-                result.Add(new ChipItem(line[1], decimal.Parse(line[2])));
-                result.Add(new ChipItem(line[1], decimal.Parse(line[2])));
+                for (int i = 0; i < 5; i++)
+                {
+                     result.Add(new ChipItem(line[1], cost));
+                }             
             }
             else if (line[0].StartsWith("B"))
             {
-                result.Add(new CandyItem(line[1], decimal.Parse(line[2])));
-                result.Add(new CandyItem(line[1], decimal.Parse(line[2])));
-                result.Add(new CandyItem(line[1], decimal.Parse(line[2])));
-                result.Add(new CandyItem(line[1], decimal.Parse(line[2])));
-                result.Add(new CandyItem(line[1], decimal.Parse(line[2])));
+                for (int i = 0; i < 5; i++)
+                {
+                    result.Add(new CandyItem(line[1], cost));
+                }
+                
             }            
             else if (line[0].StartsWith("C"))
             {
-                result.Add(new BeverageItem(line[1], decimal.Parse(line[2])));
-                result.Add(new BeverageItem(line[1], decimal.Parse(line[2])));
-                result.Add(new BeverageItem(line[1], decimal.Parse(line[2])));
-                result.Add(new BeverageItem(line[1], decimal.Parse(line[2])));
-                result.Add(new BeverageItem(line[1], decimal.Parse(line[2])));
+                for (int i = 0; i < 5; i++)
+                {
+                    result.Add(new BeverageItem(line[1], cost));
+                }
+               
             }
             else if (line[0].StartsWith("D"))
             {
-                result.Add(new GumItem(line[1], decimal.Parse(line[2])));
-                result.Add(new GumItem(line[1], decimal.Parse(line[2])));
-                result.Add(new GumItem(line[1], decimal.Parse(line[2])));
-                result.Add(new GumItem(line[1], decimal.Parse(line[2])));
-                result.Add(new GumItem(line[1], decimal.Parse(line[2])));
+                for (int i = 0; i < 5; i++)
+                {
+                    result.Add(new GumItem(line[1], cost));
+                }               
             }
             return result;
         }
