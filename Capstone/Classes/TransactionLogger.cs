@@ -22,7 +22,7 @@ namespace Capstone.Classes
             {
                 using (StreamWriter sw = new StreamWriter(Filepath, true))
                 {
-                    sw.WriteLine($"{DateTime.Now} FEED MONEY {amount.ToString("C")} {finalBalance.ToString("C")}");
+                    sw.WriteLine("{0,-23}{1,-20}{2,-4}{3,7}{4, 9}", $"{DateTime.Now}", "FEED MONEY", "", $"{amount.ToString("C")}", $"{finalBalance.ToString("C")}");
                 }
             }
             catch(IOException ex)
@@ -37,7 +37,7 @@ namespace Capstone.Classes
             {
                 using (StreamWriter sw = new StreamWriter(Filepath, true))
                 {
-                    sw.WriteLine($"{DateTime.Now} {product} {slot} {initialBal.ToString("C")} {finalBalance.ToString("C")}");
+                    sw.WriteLine("{0,-23}{1,-20}{2,-4}{3,7}{4, 9}", $"{DateTime.Now}", $"{product}", $"{slot}", $"{initialBal.ToString("C")}", $"{finalBalance.ToString("C")}");
                 }
             }
             catch(IOException ex)
@@ -53,7 +53,7 @@ namespace Capstone.Classes
             {
                 using (StreamWriter sw = new StreamWriter(Filepath, true))
                 {
-                    sw.WriteLine($"{DateTime.Now} GIVE CHANGE {remainingBalance.ToString("C")} $0.00");
+                    sw.WriteLine("{0,-23}{1,-20}{2,-4}{3,7}{4, 9}", $"{DateTime.Now}", "GIVE CHANGE", "", $"{remainingBalance.ToString("C")}", "$0.00");
                 }
             }
             catch(IOException)

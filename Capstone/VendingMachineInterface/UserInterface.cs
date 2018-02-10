@@ -33,11 +33,13 @@ namespace Capstone.VendingMachineInterface
 
                 if (input == "1")
                 {
+                    Console.WriteLine("{0,-6}{1,-18}{2,12}", "SLOT#", "ITEM NAME", "# REMAINING");
                     foreach(var slot in vendingMachine.Slots)
                     {
                         try
                         {
-                            Console.WriteLine($"{slot} {vendingMachine.GetItemAtSlot(slot).ItemName} {vendingMachine.GetQuantityRemaining(slot)}");
+                            
+                            Console.WriteLine("{0,-6}{1,-18}{2,12}" , $"{slot}" , $"{vendingMachine.GetItemAtSlot(slot).ItemName}", $"{vendingMachine.GetQuantityRemaining(slot)}");
                         }
                         catch(OutOfStockException ex)
                         {
