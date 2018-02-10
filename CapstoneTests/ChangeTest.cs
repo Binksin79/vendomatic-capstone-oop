@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Capstone.Classes;
 
 namespace CapstoneTests
 {
@@ -7,8 +8,17 @@ namespace CapstoneTests
     public class ChangeTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void DoesItReturnProperChangeString()
         {
+            //Arrange
+            Change test = new Change(132.345-);
+            //Act
+
+            //Assert
+
+
+
+
         }
     }
 }

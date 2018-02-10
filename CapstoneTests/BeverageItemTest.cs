@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Capstone.Classes;
 
 namespace CapstoneTests
 {
@@ -7,8 +8,14 @@ namespace CapstoneTests
     public class BeverageItemTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void DoesItGlugGlugYum()
         {
+            // Arrange
+            BeverageItem tester = new BeverageItem("test", 1);
+            // Act
+            string result = tester.Consume();
+            // Assert
+            Assert.AreEqual("Glug Glug, Yum!", result);
         }
     }
 }

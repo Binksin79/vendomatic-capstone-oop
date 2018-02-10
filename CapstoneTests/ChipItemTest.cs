@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Capstone.Classes;
 
 namespace CapstoneTests
 {
@@ -7,8 +8,14 @@ namespace CapstoneTests
     public class ChipItemTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void DoesItCrunchCrunchYum()
         {
+            // Arrange
+            ChipItem tester = new ChipItem("test", 1);
+            // Act
+            string result = tester.Consume();
+            // Assert
+            Assert.AreEqual("Crunch Crunch, Yum!", result);
         }
     }
 }
