@@ -71,7 +71,7 @@ namespace Capstone.Classes
             else
             {
                 throw new OutOfStockException();
-            }
+            }          
         }
 
         public Change GetChange()
