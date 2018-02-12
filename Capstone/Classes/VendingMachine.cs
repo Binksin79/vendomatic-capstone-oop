@@ -56,7 +56,7 @@ namespace Capstone.Classes
         {
             if (!Slots.Contains(slot)) { throw new InvalidSlotException(); }
             if (Balance - GetItemAtSlot(slot).ItemPrice < 0) { throw new InsufficientFundsException(); }
-            if (Inventory[slot].Count <= 0) { throw new OutOfStockException(); }
+            if (Inventory[slot].Count == 0) { throw new OutOfStockException(); }
 
             decimal initialBal = Balance;
             Balance -= GetItemAtSlot(slot).ItemPrice;
@@ -64,8 +64,9 @@ namespace Capstone.Classes
             if (Inventory[slot].Count > 0)
             {
                 VendingItem temp = Inventory[slot][0];
-                Inventory[slot].RemoveAt(0);
                 logger.RecordPurchase(slot, GetItemAtSlot(slot).ItemName, initialBal, Balance);
+                Inventory[slot].RemoveAt(0);
+                
                 return temp;
             }
             else

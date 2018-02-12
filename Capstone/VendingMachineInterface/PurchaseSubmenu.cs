@@ -43,6 +43,11 @@ namespace Capstone.VendingMachineInterface
                         {
                             vm.FeedMoney(dollar);
                         }
+                        else
+                        {
+                            Console.WriteLine("Invalid Input");
+                            break;
+                        }
                     }
                     catch (InvalidOperationException ex)
                     {
