@@ -29,7 +29,6 @@ namespace Capstone.VendingMachineInterface
                 Console.WriteLine("2] Select Product");
                 Console.WriteLine("3] Finish Transaction");
 
-
                 Console.Write("What option do you want to select? ");
                 string input = Console.ReadLine();
 
@@ -43,9 +42,9 @@ namespace Capstone.VendingMachineInterface
                         {
                             vm.FeedMoney(dollar);
                         }
-                        else
+                        if ((dollar != 1 || dollar != 5 || dollar != 10 || dollar != 20))
                         {
-                            Console.WriteLine("Invalid Input");
+                            Console.WriteLine("Invalid Input, Returning to Main Menu.");
                             break;
                         }
                     }
@@ -53,9 +52,7 @@ namespace Capstone.VendingMachineInterface
                     {
                         Console.WriteLine("Invalid input. Try again.");
                     }
-
                 }
-
                 else if (input == "2")
                 {
                     try
@@ -78,15 +75,9 @@ namespace Capstone.VendingMachineInterface
                     {
                         Console.WriteLine($"{item.Consume()}");
                     }
-
                     break;
                 }
-
-
             }
-
-
-
         }
     }
 }
