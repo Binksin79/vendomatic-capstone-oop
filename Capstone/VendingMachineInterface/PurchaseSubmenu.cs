@@ -44,13 +44,12 @@ namespace Capstone.VendingMachineInterface
                             Console.WriteLine("Invalid Input, Returning to Main Menu");
                             break;
                         }
-
-                        int dollar = Convert.ToInt32(Console.ReadLine());
+                        int dollar = num;// Convert.ToInt32(Console.ReadLine());
                         if (dollar == 1 || dollar == 5 || dollar == 10 || dollar == 20)
                         {
                             vm.FeedMoney(dollar);
                         }
-                        if ((dollar != 1 || dollar != 5 || dollar != 10 || dollar != 20))
+                        if ((dollar != 1 && dollar != 5 && dollar != 10 && dollar != 20))
                         {
                             Console.WriteLine("Invalid Input, Returning to Main Menu.");
                             break;
