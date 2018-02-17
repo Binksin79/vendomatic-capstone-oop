@@ -38,15 +38,17 @@ namespace Capstone.VendingMachineInterface
                     Console.WriteLine("--------------------------------------------------");
                     foreach(var slot in vendingMachine.Slots)
                     {
-                        try
+                        VendingItem item = vendingMachine.GetItemAtSlot(slot);
+
+                        if (item != null)
                         {
-                            
-                            Console.WriteLine("|| {0,-6} | {1,-18}   | {2,12} ||" , $"{slot}" , $"{vendingMachine.GetItemAtSlot(slot).ItemName.ToUpper()}", $"{vendingMachine.GetQuantityRemaining(slot)}");
+                            Console.WriteLine("|| {0,-6} | {1,-18}   | {2,12} ||", $"{slot}", $"{item.ItemName.ToUpper()}", $"{vendingMachine.GetQuantityRemaining(slot)}");
                         }
-                        catch(OutOfStockException ex)
+                        else
                         {
-                            Console.WriteLine("|| {0,-6} | {1,-18}| {2,12} ||",$"{slot}",$"{ex.Message}","0");
-                        }
+                            Console.WriteLine("|| {0,-6} | {1,-18}| {2,12} ||", $"{slot}", $"That item is SOLD OUT", "0");
+
+                        }                       
                     }
                     Console.WriteLine("--------------------------------------------------");
                 }

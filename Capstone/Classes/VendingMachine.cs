@@ -9,12 +9,12 @@ namespace Capstone.Classes
 {
     public class VendingMachine
     {
-        VendingMachineFileReader invoke = new VendingMachineFileReader("vendingmachine.csv");
+        VendingMachineFileReader inventoryReader = new VendingMachineFileReader("vendingmachine.csv");
         TransactionLogger logger = new TransactionLogger("log.txt");
 
         public VendingMachine()
         {
-            Inventory = invoke.GetInventory();
+            Inventory = inventoryReader.GetInventory();
         }
 
         public decimal Balance { get; private set; } = 0;
@@ -34,21 +34,29 @@ namespace Capstone.Classes
 
         public VendingItem GetItemAtSlot(string slot)
         {
-            if (Inventory[slot].Count == 0) { throw new OutOfStockException(); }
-            if (Inventory[slot].Count > 0)
+            if (!Inventory.ContainsKey(slot))
             {
+                throw new InvalidSlotException();
+            }
 
-                VendingItem itemAtSlot = Inventory[slot][0];
-                return itemAtSlot;
+            if (Inventory[slot].Count <= 0)
+            {
+                return null;
             }
             else
             {
-                throw new OutOfStockException();
+                VendingItem itemAtSlot = Inventory[slot][0];
+                return itemAtSlot;
             }
         }
 
         public int GetQuantityRemaining(string slot)
         {
+            if (!Inventory.ContainsKey(slot))
+            {
+                throw new InvalidSlotException();
+            }
+
             return Inventory[slot].Count;
         }
 
@@ -61,24 +69,20 @@ namespace Capstone.Classes
             decimal initialBal = Balance;
             Balance -= GetItemAtSlot(slot).ItemPrice;
 
-            if (Inventory[slot].Count > 0)
-            {
-                VendingItem temp = Inventory[slot][0];
-                logger.RecordPurchase(slot, GetItemAtSlot(slot).ItemName, initialBal, Balance);
-                Inventory[slot].RemoveAt(0);
-                
-                return temp;
-            }
-            else
-            {
-                throw new OutOfStockException();
-            }          
+            VendingItem temp = Inventory[slot][0];
+            logger.RecordPurchase(slot, GetItemAtSlot(slot).ItemName, initialBal, Balance);
+            Inventory[slot].RemoveAt(0);
+
+            return temp;
         }
 
         public Change GetChange()
         {
             logger.RecordCompleteTransaction(Balance);
             Change change = new Change(Balance);
+
+            Balance = 0;
+
             return change;
         }
     }

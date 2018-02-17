@@ -38,18 +38,20 @@ namespace Capstone.VendingMachineInterface
                     {
                         Console.WriteLine("Enter money in denominations of $1, $5, $10, or $20");                      
                         string intChecker = Console.ReadLine();
+
                         int num = -1;
                         if (!int.TryParse(intChecker, out num))
                         {
                             Console.WriteLine("Invalid Input, Returning to Main Menu");
                             break;
                         }
+
                         int dollar = num;// Convert.ToInt32(Console.ReadLine());
                         if (dollar == 1 || dollar == 5 || dollar == 10 || dollar == 20)
                         {
                             vm.FeedMoney(dollar);
                         }
-                        if ((dollar != 1 && dollar != 5 && dollar != 10 && dollar != 20))
+                        else
                         {
                             Console.WriteLine("Invalid Input, Returning to Main Menu.");
                             break;

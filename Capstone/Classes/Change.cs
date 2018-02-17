@@ -16,11 +16,10 @@ namespace Capstone.Classes
         public int Nickels { get { return nickels; } }
         public int Dimes { get { return dimes; } }
         public int Quarters { get { return quarters; } }
-        public decimal Total { get; }
+        public decimal Total { get { return total; } }
 
         public Change(decimal total)
         {
-            Total = total;
             this.total = total;
         }
 

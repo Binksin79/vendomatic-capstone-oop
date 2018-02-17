@@ -12,8 +12,15 @@ namespace Capstone
     {
         static void Main(string[] args)
         {
-            UserInterface x = new UserInterface();
-            x.Display();
+            try
+            {
+                UserInterface ui = new UserInterface();
+                ui.Display();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error operating the vending machine. Out of service.");
+            }
         }
     }
 }
